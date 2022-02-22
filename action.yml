@@ -1,17 +1,20 @@
-name: 'Jest badges generation action'
-description: 'Action generating jest coverage badges and pushing them to the repo'
+name: "Jest badges generation action"
+description: "Action generating jest coverage badges and pushing them to the repo"
 
 inputs:
   branches:
-    description: 'Branches on which the badges should be generated. Commas separated.'
-    default: 'master'
+    description: "Branches on which the badges should be generated. Commas separated."
+    default: "master"
+  commitMessage:
+    description: "Branches on which the badges should be generated. Commas separated."
+    default: "chore(badges): update jest coverage badges [skip-ci]"
   coverage-summary-path:
-    description: 'Jest coverage summary path (json-summary). Defining this may be useful if you need to run this action on a monorepo.'
-    default: './coverage/coverage-summary.json'
+    description: "Jest coverage summary path (json-summary). Defining this may be useful if you need to run this action on a monorepo."
+    default: "./coverage/coverage-summary.json"
 
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
 
 branding:
   icon: check-square
