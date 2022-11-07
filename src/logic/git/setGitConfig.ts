@@ -3,10 +3,17 @@ import { exec } from '@actions/exec';
 import { context } from '@actions/github';
 
 export const setGitConfig = async (): Promise<void> => {
-  await exec('git config', ['--global', 'user.name', context.actor]);
+  const userName = getInput('github-user-name');
+  const userEmail = getInput('github-user-email');
+
+  await exec('git config', [
+    '--global',
+    'user.name',
+    userName || context.actor,
+  ]);
   await exec('git config', [
     '--global',
     'user.email',
-    `${context.actor}@users.noreply.github.com`,
+    `${userEmail || context.actor}@users.noreply.github.com`,
   ]);
 };
