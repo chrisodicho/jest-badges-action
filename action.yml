@@ -1,20 +1,26 @@
-name: 'Jest badges generation action'
-description: 'Action generating jest coverage badges and pushing them to the repo'
+name: "Jest badges generation action"
+description: "Action generating jest coverage badges and pushing them to the repo"
 
 inputs:
   branches:
-    description: 'Branches on which the badges should be generated. Commas separated.'
-    default: 'master,main'
+    description: "Branches on which the badges should be generated. Commas separated."
+    default: "master,main"
   coverage-summary-path:
-    description: 'Jest coverage summary path (json-summary). Defining this may be useful if you need to run this action on a monorepo.'
-    default: './coverage/coverage-summary.json'
+    description: "Jest coverage summary path (json-summary). Defining this may be useful if you need to run this action on a monorepo."
+    default: "./coverage/coverage-summary.json"
   commit-message:
-    description: 'Commit message of the commit with generated badges.'
-    default: 'Updating coverage badges'
+    description: "Commit message of the commit with generated badges."
+    default: "Updating coverage badges"
+  github-token:
+    description: "Github Personal Access Token used to change the commit user. Useful for pushing to protected branches"
+  github-user-name:
+    description: "Replace the Github user name (defaults to actor that triggered the workflow)"
+  github-user-email:
+    description: "Replace the Github user email (defaults to actor that triggered the workflow)"
 
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
 
 branding:
   icon: check-square
