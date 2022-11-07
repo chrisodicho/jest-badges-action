@@ -42,7 +42,7 @@ export const actionWorkflow = async (): Promise<void> => {
     }
 
     info('🔶 Pushing badges to the repo');
-    await setGitConfig();
+    // await setGitConfig();
     await pushBadges();
   } catch (error) {
     if (error instanceof Error) {
